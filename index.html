@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous">
+</script>
+
+<style>
+.container {
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+  .C-mark{
+  background-color: rgba(247, 159, 206, 0.452);
+  border-radius: 40px;
+  }
+
+body{
+     background-color: #fff;
+}
+
+.pbox{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.footer{
+      bottom: 0;
+  width: 95%;
+  margin-top: 3%; margin-bottom: 0px;
+  text-align: center;  
+}
+
+.tyuusen-input{
+background-color: rgba(247, 159, 206, 0.452);
+border-color: rgb(247, 159, 206);
+outline: none;
+width: 95%;
+border-radius:10px;
+box-shadow: none;
+padding: 2px 8px;
+resize: none;
+}
+
+.kekka{
+  border: solid;
+  width: 95%;
+  background-color: rgba(247, 159, 206, 0.452);
+  border-color: rgb(247, 159, 206);
+  border-radius:10px;
+  display: inline-block;
+}
+
+</style>
+      <head>
+  
+        <script>
+        function lottery() {
+          var loader = document.getElementById('loading');
+      loader.style.display = '';
+      setTimeout(endLoader,500);
+  
+      function endLoader(){
+      var loader = document.getElementById('loading');
+      loader.style.display = 'none';
+      }
+  
+          var text = document.forms["testForm"].elements["user"].value;
+         
+          var arr = text.split(/\x0D\x0A|\x0A|\x0D/);
+      
+          var ret = arr[ Math.floor( Math.random() * arr.length ) ] ;
+          
+          document.getElementById("str").textContent=ret ;
+  
+        }
+  
+        $(function() {
+          $("#year").text (new Date().getFullYear());});
+
+          
+        
+        </script>
+</head>
+<body>
+  <div class="container">
+
+  <form name="testForm">
+    <p style="font-size: 20px; margin-bottom: 0px; margin-top: 0px;"><span style="font-size:35px;">①</span>抽選対象の入力</p>
+    <p style="font-size:15px; margin-top: 0px;">※1行で1つの対象として認識するので改行して入力してください。</p>
+    <textarea class="tyuusen-input" cols="50" rows="10" name="user" placeholder="《例》&#13;&#10;綿あめ&#13;&#10;りんご飴&#13;&#10;たこ焼き&#13;&#10;焼きそば"></textarea>
+    <p style="font-size: 20px; margin-bottom: 0px; margin-top: 0px;"><span style="font-size:35px;">②</span>実行</p>
+    <input type="button" style="border-radius:30px; width: 95%; height: 40px; background-color: rgba(247, 159, 206, 0.452); border-color: rgb(247, 159, 206); border-style: solid; font-size: 15px;" value="実行" onClick="lottery();" class="chk1" id="chkid1">
+
+    <p style="font-size: 20px; margin-bottom: 0px; margin-top: 0px;"><span style="font-size:35px;">③</span>抽選結果の確認</p>
+    <div class="kekka">
+      <div class="box-title"><p style="text-align: center; margin: 5px;">抽選結果</p></div>
+<h1 id="str" style="text-align: center; overflow-wrap: break-word">ㅤㅤㅤㅤㅤ</h1>
+  </div>
+  <p style="font-size: 20px; margin-bottom: 0px; margin-top: 0px;"><span style="font-size:35px;">④</span>入力内容のリセット</p>
+  <input type="button" style="border-radius:30px; width: 95%; height: 40px; background-color: rgba(247, 159, 206, 0.452); border-color: rgb(247, 159, 206); border-style: solid; font-size: 15px;"  value="リセット" onclick="window.location.reload(true);" class="chk2" id="chkid2" />
+  </form>
+
+  <div id="loading" style="display:none;">
+</div>
+
+<div class="footer">
+        <div class="C-mark"><p>&copy; BlossomsArchive 2018-<span id="year"></span></p></div>
+</div>
+</div>
+</body>
+</html>
